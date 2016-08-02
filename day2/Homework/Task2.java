@@ -21,51 +21,14 @@ public class Task2 {
         }
     }
 
-    private static String readString() {
-        try {
-            return new Scanner(new File("input.txt")).nextLine();
-        } catch (FileNotFoundException ex) {
-            return null;
-        }
-    }
-
-    private static void writeDouble(double number) {
-        writeString(Double.toString(number));
-    }
-
     public static void main(String[] args) {
         double d = readDouble();
-        long lbits = Double.doubleToLongBits(d);
-        //long ld = Double.doubleToLongBits(d);
-        System.out.println(ld);
-        String str = "";
-        while (ld > 0) {
-            if (ld % 2 == 1) str += '1';
-            else str += '0';
-            ld /= 2;
-        }
-
-        String str2 = new StringBuffer(str).reverse().toString();
-        System.out.println(str2);
-        long sign = 0;
-        long ext = Long.parseLong(str2);
-        sign = ext % 10; ext /= 10;
-        System.out.println(ext);
-        int j = 0;
-        long exp;
-        for (int i = 0; i < 11; i++) {
-            if (i <= str.length()) {
-                
-            }
-        }
-        /*long lsign = lbits >>> 63; // знак
-        long lexp = (lbits >>> 52 & ((1 << 11) - 1)) - ((1 << 10) - 1); // порядок
-        long lmantissa = lbits & ((1L << 52) - 1); // мантисса
-        long t = lmantissa;
-        lmantissa = lsign;
-        lsign = lmantissa;
-        System.out.println(lsign + " " + lexp + " " + lmantissa);
-        System.out.println(Double.longBitsToDouble((lsign << 63) | (lexp + ((1 << 10) - 1)) << 52 | lmantissa));*/
+        long ed_d = Double.doubleToLongBits(d);
+        long sign = ed_d << 63;
+        long exponent = (ed_d & 0xFFFL) << 51;
+        long significand = ed_d >> 12;
+        ed_d = sign | exponent | significand;
+        writeString(Double.toString(Double.longBitsToDouble(ed_d)));
     }
 }
 
