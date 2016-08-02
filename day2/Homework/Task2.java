@@ -26,7 +26,7 @@ public class Task2 {
         long ed_d = Double.doubleToLongBits(d);
         long sign = ed_d << 63;
         long exponent = (ed_d & 0xFFFL) << 51;
-        long significand = ed_d >> 12;
+        long significand = ed_d >>> 12;
         ed_d = sign | exponent | significand;
         writeString(Double.toString(Double.longBitsToDouble(ed_d)));
     }
