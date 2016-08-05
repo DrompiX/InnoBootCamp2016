@@ -11,7 +11,7 @@ class Main {
     }
 
     static class TaskA {
-        public void solve() Scanner in, PrintWriter out) {
+        public void solve(Scanner in, PrintWriter out) {
             int num = in.nextInt();
             for (int i = 1; i < num; i++) {
                 if (num % i == 0)
@@ -20,4 +20,6 @@ class Main {
             out.write(num + "\n");
         }
     }
-}//STRINGBUILDER
+}
+//STRINGBUILDER
+
