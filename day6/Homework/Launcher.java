@@ -1,6 +1,9 @@
 import java.util.*;
 import java.io.*;
 
+/**
+ * @author Dmitry Turenko
+ * */
 public class Launcher {
     public static void main(String[] args) throws IOException {
         String[] languages = {"en", "eo", "es"};
@@ -29,11 +32,18 @@ public class Launcher {
 class Reader {
     String inFileName = "";
     int cnt = 2;
-
+    
+    /**
+     * Constructor that takes and sets input file name as a param 
+     * */
     public Reader(String name) {
         inFileName = name;
     }
-    
+ 
+    /**
+     * Method that reads all text in the file
+     * @return array of string, which contains the text
+     * */
     public String[] read() throws IOException {
         File input = new File(inFileName);
         Scanner in = new Scanner(new FileReader(input));
@@ -52,10 +62,19 @@ class Reader {
 class Writer {
     String outFileName = "";
  
+    /**
+     * Constructor that takes and sets output file name as a param
+     * */
     public Writer(String name) {
         outFileName = name;
     }
 
+    /**
+     * Method that writes text from String array
+     *
+     * @param String[] sentence - all text was saved there
+     * @param len - how many strings in the text 
+     * */
     public void write(String[] sentence, int len) throws IOException {
         File output = new File(outFileName);
         PrintWriter out = new PrintWriter(new FileWriter(output));
@@ -70,11 +89,22 @@ class Translator {
     int fromLang;
     int toLang;
     
+    /**
+     * Contructor
+     *
+     * @param from - start language
+     * @param to - lanuage for translation
+     * */
     public Translator(int from, int to) {
         fromLang = from;
         toLang = to;
     }
 
+    /**
+     * Method that translates text from one language to another, using dictionary
+     *
+     * @param s - string of text we should translate
+     * */
     public String translate(String s) {
         String[][] dict = {
             {"tiger", "tigro", "tigre"},
