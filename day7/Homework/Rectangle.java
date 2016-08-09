@@ -9,8 +9,8 @@ public class Rectangle extends Figure {
     private double width;
 
     public Rectangle(double length, double width) { //constructor with l and w as a params
-        this.length = length;
-        this.width = width;
+        this.length = length; //changing length value
+        this.width = width; //changing width value
     }
 
     /**

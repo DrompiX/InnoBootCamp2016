@@ -76,7 +76,7 @@ public class Application {
      * */
     public static void square(Scanner in, PrintWriter out) {
         double side = Double.parseDouble(in.next()); //reading of side value
-        Square ourSquare = new Square(side); //creating new Square object
+        Rectangle ourSquare = new Square(side); //creating new Square object
         double sq = ourSquare.area(); //counting square
         out.write(sq + "\n"); //outputting square
     }
